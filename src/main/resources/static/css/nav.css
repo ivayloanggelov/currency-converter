@@ -9,16 +9,16 @@ body {
     height: 100vh;
 }
 
-a{
+a {
     font-size: 12px;
     text-transform: uppercase;
 }
 
-.nav-area{
+.nav-area {
     background: #262626;
 }
 
-.nav-area:after{
+.nav-area:after {
     content: '';
     clear: both;
     display: block;
@@ -41,7 +41,7 @@ a{
     display: block;
 }
 
-.nav-area ul li:hover a{
+.nav-area ul li:hover a {
     background: #34495a;
 }
 
@@ -58,7 +58,7 @@ a{
     display: block;
 }
 
-.nav-area ul ul li:hover a{
+.nav-area ul ul li:hover a {
     background: #262626;
 }
 
@@ -67,7 +67,7 @@ a{
 }
 
 .nav-area ul ul ul {
-    top:0;
+    top: 0;
     left: 100%;
 }
 

@@ -4911,8 +4911,9 @@ input[type="button"].btn-block {
 /*}*/
 
 #element1 {
-    display:inline-block;margin-right:10px;
-    text-align:center;
+    display: inline-block;
+    margin-right: 10px;
+    text-align: center;
 }
 
 .page-link {
@@ -10825,5 +10826,7 @@ form .row:first-child .floating-label-form-group {
     cursor: pointer;
 }
 
-.pagination {text-align: center;}
+.pagination {
+    text-align: center;
+}
 

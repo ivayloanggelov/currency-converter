@@ -1,7 +1,6 @@
 package com.currencyconverter;
 
 import com.currencyconverter.models.Transaction;
-import com.currencyconverter.models.TransactionDto;
 
 import java.time.LocalDate;
 

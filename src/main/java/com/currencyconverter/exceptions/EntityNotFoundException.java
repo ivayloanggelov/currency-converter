@@ -1,6 +1,6 @@
 package com.currencyconverter.exceptions;
 
-public class EntityNotFoundException extends RuntimeException{
+public class EntityNotFoundException extends RuntimeException {
     public EntityNotFoundException(String type, Long id) {
         this(type, "id", String.valueOf(id));
     }

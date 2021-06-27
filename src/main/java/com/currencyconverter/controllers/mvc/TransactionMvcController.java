@@ -1,10 +1,10 @@
 package com.currencyconverter.controllers.mvc;
 
 import com.currencyconverter.exceptions.EntityNotFoundException;
+import com.currencyconverter.models.ExchangeRateDto;
 import com.currencyconverter.models.Transaction;
 import com.currencyconverter.models.TransactionDto;
 import com.currencyconverter.models.TransactionSearchParameters;
-import com.currencyconverter.models.ExchangeRateDto;
 import com.currencyconverter.services.contracts.TransactionService;
 import com.currencyconverter.services.modelmappers.TransactionModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
