@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Currency Converter</title>
+    <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet">
+    <link href="../static/css/table.css" th:href="@{/css/table.css}" rel="stylesheet">
+    <link href="../static/css/nav.css" th:href="@{/css/nav.css}" rel="stylesheet">
+    <style>
+        .main1 {
+            margin-left: 10px;
+        }
+
+        .main2 {
+            margin-left: 60px;
+        }
+
+        .main3 {
+            margin-left: 60px;
+        }
+
+        button {
+            margin-top: 30px;
+        }
+
+    </style>
+</head>
+<body>
+<nav th:replace="fragments.html :: nav-bar"></nav>
+<br>
+<form th:object="${transactionDto}" method="post" th:action="@{/}">
+    <div class="container">
+        <div class="row">
+            <div>
+                <label class="main1"><b>Amount</b></label>
+                <input class="form-control main1" th:field="*{amount}">
+                <label class="error" th:errors="*{amount}">Invalid amount</label>
+            </div>
+            <div>
+                <label class="main2"><b>From Currency</b></label>
+                <select class="form-control main2" th:field="*{fromCurrency}">
+                    <option th:each="currency : ${currencies}"
+                            th:value="${currency.getKey()}"
+                            th:text="${currency.getKey()}">[One]
+                    </option>
+                </select>
+            </div>
+            <div class="main3">
+                <button type="submit" class="btn btn-primary main3">Convert</button>
+            </div>
+            <div>
+                <label class="main3"><b>To Currency</b></label>
+                <select class="form-control main3" th:field="*{toCurrency}">
+                    <option th:each="currency : ${currencies}"
+                            th:value="${currency.getKey()}"
+                            th:text="${currency.getKey()}">
+                    </option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <br>
+    <h1 style="text-align: center" th:if="${totalAmount != 0 && transaction != null}" th:text="${transaction.getFinalResult()}"></h1>
+</form>
+</body>
+</html>

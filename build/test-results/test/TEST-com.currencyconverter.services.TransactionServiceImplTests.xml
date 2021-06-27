@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.currencyconverter.services.TransactionServiceImplTests" tests="15" skipped="0" failures="0" errors="0" timestamp="2021-06-27T14:46:59" hostname="DESKTOP-V0PPS9G" time="2.58">
+  <properties/>
+  <testcase name="exchangeRate_Should_Return_RoundedValue()" classname="com.currencyconverter.services.TransactionServiceImplTests" time="1.041"/>
+  <testcase name="create_Should_Throw_When_FromCurrencyDoesNotExist()" classname="com.currencyconverter.services.TransactionServiceImplTests" time="0.156"/>
+  <testcase name="findPaginated_Should_Return_Pages()" classname="com.currencyconverter.services.TransactionServiceImplTests" time="0.053"/>
+  <testcase name="update_Should_Throw_When_FromCurrencyDoesNotExist()" classname="com.currencyconverter.services.TransactionServiceImplTests" time="0.155"/>
+  <testcase name="update_Should_Call_Repository_When_TransactionIsValid()" classname="com.currencyconverter.services.TransactionServiceImplTests" time="0.296"/>
+  <testcase name="getByDate_Should_Throw_WhenTransactionDoesNotExists()" classname="com.currencyconverter.services.TransactionServiceImplTests" time="0.01"/>
+  <testcase name="getById_Should_Call_Repository_WhenTransactionExists()" classname="com.currencyconverter.services.TransactionServiceImplTests" time="0.013"/>
+  <testcase name="getByDate_Should_Call_Repository_WhenTransactionExists()" classname="com.currencyconverter.services.TransactionServiceImplTests" time="0.004"/>
+  <testcase name="getAllCurrencies_Return_AllCurrencies()" classname="com.currencyconverter.services.TransactionServiceImplTests" time="0.142"/>
+  <testcase name="getAll_Should_Call_Repository()" classname="com.currencyconverter.services.TransactionServiceImplTests" time="0.003"/>
+  <testcase name="create_Should_Throw_When_ToCurrencyDoesNotExist()" classname="com.currencyconverter.services.TransactionServiceImplTests" time="0.143"/>
+  <testcase name="getById_Should_Throw_WhenTransactionDoesNotExists()" classname="com.currencyconverter.services.TransactionServiceImplTests" time="0.003"/>
+  <testcase name="delete_Should_Call_Repository()" classname="com.currencyconverter.services.TransactionServiceImplTests" time="0.005"/>
+  <testcase name="update_Should_Throw_When_ToCurrencyDoesNotExist()" classname="com.currencyconverter.services.TransactionServiceImplTests" time="0.143"/>
+  <testcase name="create_Should_Call_Repository_When_TransactionIsValid()" classname="com.currencyconverter.services.TransactionServiceImplTests" time="0.399"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

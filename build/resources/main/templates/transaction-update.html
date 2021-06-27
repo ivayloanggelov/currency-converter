@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><head>
+    <meta charset="UTF-8">
+    <title>Update Conversion</title>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"
+          id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="../static/css/nav.css" th:href="@{/css/nav.css}" rel="stylesheet">
+
+</head>
+<body>
+<nav th:replace="fragments.html :: nav-bar"></nav>
+<br>
+<div class="well">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#home" data-toggle="tab">Edit</a></li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+        <div class="tab-pane active in" id="home">
+            <form  action="#" th:action="@{__${#httpServletRequest.requestURI}__}"
+                  th:object="${transaction}" method="post">
+                <label>Date</label>
+                <label>
+                    <input type="date" th:field="*{date}" class="input-xlarge">
+                </label>
+                <br>
+                <label>Amount</label>
+                <label>
+                    <input type="text" th:field="*{amount}" class="input-xlarge">
+                </label>
+                <label class="error" th:errors="*{amount}">Amount should be positive.</label>
+                <br>
+                <div>
+                    <label>From Currency</label>
+                    <select class="form-control" th:field="*{fromCurrency}">
+                        <option th:each="currency : ${currencies}"
+                                th:value="${currency.getKey()}"
+                                th:text="${currency.getKey()}">
+                        </option>
+                    </select>
+                </div>
+                <br>
+                <div>
+                    <label>To Currency</label>
+                    <select class="form-control" th:field="*{toCurrency}">
+                        <option th:each="currency : ${currencies}"
+                                th:value="${currency.getKey()}"
+                                th:text="${currency.getKey()}">
+                        </option>
+                    </select>
+                </div>
+                <div>
+                    <button class="btn btn-primary" th:class="submit-btn">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

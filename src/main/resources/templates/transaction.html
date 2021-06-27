@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link href="../static/css/nav.css" th:href="@{/css/nav.css}" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <title>Conversion</title>
+    <style>
+        table.bottomBorder {
+            border-collapse: collapse;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        table.bottomBorder td,
+        table.bottomBorder th {
+            border-bottom: 1px solid yellowgreen;
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<nav th:replace="fragments.html :: nav-bar"></nav>
+<br>
+<table class="bottomBorder">
+    <colgroup>
+        <col width="12%">
+        <col width="12%">
+        <col width="12%">
+        <col width="12%">
+        <col width="12%">
+        <col width="12%">
+    </colgroup>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>From Currency</th>
+        <th>To Currency</th>
+        <th>Total Amount</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${transaction.id}">1</td>
+        <td th:text="${transaction.date}">2021-06-25</td>
+        <td th:text="${transaction.amount}">10</td>
+        <td th:text="${transaction.fromCurrency}">USD</td>
+        <td th:text="${transaction.toCurrency}">BGN</td>
+        <td th:text="${transaction.totalAmount}">16</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Exchange Rate</title>
+    <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet">
+    <link href="../static/css/table.css" th:href="@{/css/table.css}" rel="stylesheet">
+    <link href="../static/css/nav.css" th:href="@{/css/nav.css}" rel="stylesheet">
+    <style>
+        .main1 {
+            margin-left: 10px;
+        }
+
+        .main2 {
+            margin-left: 60px;
+        }
+
+        .main3 {
+            margin-left: 60px;
+        }
+
+        button {
+            margin-top: 30px;
+        }
+
+    </style>
+</head>
+<body>
+<nav th:replace="fragments.html :: nav-bar"></nav>
+<br>
+<form th:object="${exchangeRateDto}" method="post" th:action="@{/exchange-rate}">
+    <div class="container">
+        <div class="row">
+            <div>
+                <label class="main1"><b>Base Currency</b></label>
+                <input class="form-control main1" th:field="*{fromCurrency}" required>
+                <label class="error" th:errors="*{fromCurrency}">Invalid fromCurrency</label>
+            </div>
+            <div>
+                <label class="main2"><b>Target Currency</b></label>
+                <input class="form-control main2" th:field="*{toCurrency}" required>
+                <label class="error" th:errors="*{toCurrency}">Invalid fromCurrency</label>
+            </div>
+            <div class="main3">
+                <button type="submit" class="btn btn-primary main3">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <br>
+</form>
+<h1 style="text-align: center"
+    th:if="${exchangeRate != null}" th:text="${exchangeRate + ' ' + exchangeRateDto.toCurrency.toUpperCase()}"></h1>
+</body>
+</html>

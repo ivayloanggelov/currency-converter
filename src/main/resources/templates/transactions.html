@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Conversions</title>
+    <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet">
+    <link href="../static/css/table.css" th:href="@{/css/table.css}" rel="stylesheet">
+    <link href="../static/css/nav.css" th:href="@{/css/nav.css}" rel="stylesheet">
+</head>
+<body>
+<nav th:replace="fragments.html :: nav-bar"></nav>
+<br>
+<br>
+<form th:object="${transactionSearchParameters}" method="post" th:action="@{/search}">
+    <div class="container">
+        <div class="row">
+            <div class="input-group mb-3 col-5">
+                <label>
+                    <input class="form-control"
+                           placeholder="Search by id..." th:field="*{id}">
+                </label>
+                <label>
+                    <input class="form-control"
+                           type="date" placeholder="Search by Transaction date..." th:field="*{date}">
+                </label>
+                <br/>
+            </div>
+            <div class="col-2">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+            <div class="col-2">
+                <a class="btn btn-danger" href="#" th:href="@{/transactions}">Reset</a>
+            </div>
+        </div>
+    </div>
+</form>
+<br>
+<table class="content-table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>From Currency</th>
+        <th>To Currency</th>
+        <th>Total Amount</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="active-row" th:each="transaction : ${transactionsList}">
+        <td>
+            <a href="#" th:href="@{/{id}(id=${transaction.getId()})}" th:text="${transaction.id}">1</a>
+        </td>
+        <td th:text="${transaction.getDate()}">1</td>
+        <td th:text="${transaction.getAmount()}">10.0</td>
+        <td th:text="${transaction.getFromCurrency()}">BGN</td>
+        <td th:text="${transaction.getToCurrency()}">USD</td>
+        <td th:text="${transaction.getTotalAmount()}">USD</td>
+        <td>
+            <a th:href="@{/{id}/update(id=${transaction.getId()})}" class="button">UPDATE</a>
+            <a th:href="@{/{id}/delete(id=${transaction.getId()})}" class="button2">DELETE</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div class="text-center">
+    <div th:if="${transactionPage.totalPages > 0}" class="pagination" id="element1"
+         th:each="pageNumber : ${pageNumbers}">
+        <a th:href="@{/transactions(size=${transactionPage.size}, page=${pageNumber})}"
+           th:text="${pageNumber}"
+           th:class="${pageNumber==transactionPage.number + 1} ? ative"></a>
+    </div>
+</div>
+</body>
+</html>

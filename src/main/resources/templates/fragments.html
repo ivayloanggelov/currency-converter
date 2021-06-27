@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fragments</title>
+    <link href="../static/css/nav.css" th:href="@{/css/nav.css}" rel="stylesheet">
+</head>
+<body>
+<nav th:fragment="nav-bar" class="nav-area">
+    <ul>
+        <li><a href="#" th:href="@{/}">Home</a></li>
+        <li><a>About</a></li>
+        <li><a>Actions</a>
+            <ul>
+                <li><a href="#" th:href="@{/transactions}">All Transactions</a>
+                <li><a href="#" th:href="@{/exchange-rate}">Exchange Rate</a></li>
+                <li><a href="#" th:href="@{/}">Convert</a></li>
+            </ul>
+        </li>
+        <li><a>Contact</a></li>
+    </ul>
+</nav>
+</body>
+</html>
