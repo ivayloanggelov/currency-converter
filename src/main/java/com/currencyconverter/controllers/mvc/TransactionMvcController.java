@@ -84,7 +84,6 @@ public class TransactionMvcController {
     @PostMapping("/search")
     public String handleTransactionSearch(Model model, @ModelAttribute("transactionSearchParameters")
             TransactionSearchParameters transactionSearchParameters) {
-        model.addAttribute("conversionSearchParameters", transactionSearchParameters);
         return showAll(model, Optional.empty(), Optional.empty(), transactionSearchParameters);
     }
 
